@@ -28,7 +28,6 @@ class _MenuPageState extends State<MenuPage> {
         }
       },
       child: Scaffold(
-        backgroundColor: Color(0xFFF7F7F7),
         appBar: AppBar(
           toolbarHeight: height * 0.09,
           backgroundColor: Colors.white,
@@ -43,139 +42,143 @@ class _MenuPageState extends State<MenuPage> {
           iconTheme: IconThemeData(color: Colors.black),
         ),
         drawer: Drawer(),
-        body: Container(
-          padding: EdgeInsets.symmetric(
-              vertical: height * 0.02, horizontal: width * 0.05),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Hello, Jenny',
-                style: TextStyle(fontSize: 32),
-              ),
-              RichText(
-                  text: TextSpan(
-                      text: 'Best Food for ',
-                      style: TextStyle(
-                          fontSize: 36,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
-                      children: [
-                    TextSpan(
-                        text: 'you', style: TextStyle(color: Color(0xFFF54749)))
-                  ])),
-              SizedBox(
-                height: height * 0.04,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Material(
-                    elevation: 1,
-                    borderRadius: BorderRadius.circular(10),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
-                      ),
-                      width: width * 0.7,
-                      height: height * 0.05,
-                      child: TextField(
-                        decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.search),
-                            labelText: 'Search',
-                            labelStyle: TextStyle(fontSize: 22),
-                            border: OutlineInputBorder(
-                                borderSide: BorderSide.none)),
-                      ),
-                    ),
-                  ),
-                  Material(
-                    elevation: 1,
-                    borderRadius: BorderRadius.circular(10),
-                    child: Container(
-                      width: width * 0.12,
-                      height: height * 0.05,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage(
-                          'images/filter.png',
-                        )),
-                        borderRadius: BorderRadius.circular(10),
-                        color: Color(0xFFF54749),
+        body: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Container(
+            height: height,
+            padding: EdgeInsets.symmetric(
+                vertical: height * 0.02, horizontal: width * 0.05),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Hello, Jenny',
+                  style: TextStyle(fontSize: height * 0.037),
+                ),
+                RichText(
+                    text: TextSpan(
+                        text: 'Best Food for ',
+                        style: TextStyle(
+                            fontSize: height * 0.041,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold),
+                        children: [
+                      TextSpan(
+                          text: 'you', style: TextStyle(color: Color(0xFFF54749)))
+                    ])),
+                SizedBox(
+                  height: height * 0.04,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Material(
+                      elevation: 1,
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                        ),
+                        width: width * 0.7,
+                        height: height * 0.06,
+                        child: TextField(
+                          decoration: InputDecoration(
+                              prefixIcon: Icon(Icons.search),
+                              labelText: 'Search',
+                              labelStyle: TextStyle(fontSize: height * 0.03),
+                              border: OutlineInputBorder(
+                                  borderSide: BorderSide.none)),
+                        ),
                       ),
                     ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: height * 0.05,
-              ),
-              Container(
-                height: height * 0.06,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: meals.length,
-                    itemBuilder: (BuildContext context, int index) =>
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              selectedIndex = index;
-                            });
-                          },
-                          child: Container(
-                              margin: EdgeInsets.only(right: 15),
-                              height: height * 0.06,
-                              padding: EdgeInsets.symmetric(horizontal: 20),
-                              decoration: BoxDecoration(
-                                  color: selectedIndex == index
-                                      ? Color(0xFFF54749)
-                                      : Color(0xFFEBEBEB),
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Container(
-                                    height: height * 0.03,
-                                    width: height * 0.03,
-                                    child: meals[index].mealIcon,
-                                  ),
-                                  SizedBox(
-                                    width: width * 0.03,
-                                  ),
-                                  Text(
-                                    meals[index].mealCategory,
-                                    style: TextStyle(
-                                        fontSize: 22,
-                                        fontWeight: selectedIndex == index
-                                            ? FontWeight.bold
-                                            : null,
-                                        color: selectedIndex == index
-                                            ? Colors.white
-                                            : null),
-                                  )
-                                ],
-                              )),
-                        )),
-              ),
-              SizedBox(
-                height: height * 0.05,
-              ),
-              Expanded(
-                child: ListView.builder(
-                    physics: BouncingScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: meal.length,
-                    itemBuilder: (context, index) => MealWidget(
-                      image: meal[index].mealImage,
-                      title: meal[index].mealName,
-                      subtitle: meal[index].mealType,
-                      price: meal[index].mealAmount,
-                    )),
-              ),
-            ],
+                    Material(
+                      elevation: 1,
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        width: width * 0.125,
+                        height: height * 0.055,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage(
+                            'images/filter.png',
+                          )),
+                          borderRadius: BorderRadius.circular(10),
+                          color: Color(0xFFF54749),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: height * 0.05,
+                ),
+                Container(
+                  height: height * 0.06,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: meals.length,
+                      itemBuilder: (BuildContext context, int index) =>
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                selectedIndex = index;
+                              });
+                            },
+                            child: Container(
+                                margin: EdgeInsets.only(right: 15),
+                                height: height * 0.06,
+                                padding: EdgeInsets.symmetric(horizontal: 20),
+                                decoration: BoxDecoration(
+                                    color: selectedIndex == index
+                                        ? Color(0xFFF54749)
+                                        : Color(0xFFEBEBEB),
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Container(
+                                      height: height * 0.03,
+                                      width: height * 0.03,
+                                      child: meals[index].mealIcon,
+                                    ),
+                                    SizedBox(
+                                      width: width * 0.03,
+                                    ),
+                                    Text(
+                                      meals[index].mealCategory,
+                                      style: TextStyle(
+                                          fontSize: height * 0.028,
+                                          fontWeight: selectedIndex == index
+                                              ? FontWeight.bold
+                                              : null,
+                                          color: selectedIndex == index
+                                              ? Colors.white
+                                              : null),
+                                    )
+                                  ],
+                                )),
+                          )),
+                ),
+                SizedBox(
+                  height: height * 0.05,
+                ),
+                Expanded(
+                  child: ListView.builder(
+                      physics: BouncingScrollPhysics(),
+                      // shrinkWrap: true,
+                      itemCount: meal.length,
+                      itemBuilder: (context, index) => MealWidget(
+                        image: meal[index].mealImage,
+                        title: meal[index].mealName,
+                        subtitle: meal[index].mealType,
+                        price: meal[index].mealAmount,
+                      )),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -23,8 +23,9 @@ class HomePageContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textScaleFactor = MediaQuery.of(context).textScaleFactor;
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: width * 0.08),
+      padding: EdgeInsets.symmetric(horizontal: width * 0.07),
       height: height * 0.6,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -70,7 +71,7 @@ class HomePageContainer extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 'Poppins',
                     color: Colors.black,
-                    fontSize: 40,
+                    fontSize: height * 0.04,
                     fontWeight: FontWeight.bold,
                   ),
                   children: [
@@ -85,12 +86,12 @@ class HomePageContainer extends StatelessWidget {
             'Our app will make your food ordering pleasant and fast.',
             style: TextStyle(
                 color: Color(0xFF7D7D7D),
-                fontSize: 20,
+                fontSize: height*0.022,
                 fontFamily: 'Poppins'),
             textAlign: TextAlign.center,
           ),
           SizedBox(
-            height: height * 0.04,
+            height: height * 0.15,
           ),
           Container(
             child: Row(
@@ -104,7 +105,7 @@ class HomePageContainer extends StatelessWidget {
                     'Skip',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 30,
+                        fontSize: height * 0.04,
                         color: Colors.black54),
                   ),
                   style:
@@ -119,7 +120,7 @@ class HomePageContainer extends StatelessWidget {
                     'Next',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 30,
+                        fontSize: height * 0.04,
                         color: Colors.white),
                   ),
                   style: ElevatedButton.styleFrom(

@@ -12,10 +12,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        scaffoldBackgroundColor: Color(0xFFF1F1F1),
           primarySwatch: Colors.blue,
           textTheme: TextTheme(bodyText2: TextStyle(fontFamily: 'Poppins'))),
       home: CarouselWithIndicatorDemo(),

@@ -12,6 +12,7 @@ class _LocationDropdownState extends State<LocationDropdown> {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
     return DropdownButtonHideUnderline(
       child: DropdownButton(
         elevation: 0,
@@ -19,11 +20,11 @@ class _LocationDropdownState extends State<LocationDropdown> {
         hint: _dropDownString == ""
             ? Text(
                 'Location',
-                style: TextStyle(fontSize: 25),
+                style: TextStyle(fontSize: height * 0.03),
               )
             : Text(
                 _dropDownString,
-                style: TextStyle(fontSize: 25),
+                style: TextStyle(fontSize: height * 0.03),
               ),
         items: ['Abuja', 'Lagos', 'Aba']
             .map((value) => DropdownMenuItem<String>(
@@ -34,7 +35,7 @@ class _LocationDropdownState extends State<LocationDropdown> {
             _dropDownString = value!;
           });
         },
-        iconSize: 20,
+        iconSize: height * 0.03,
       ),
     );
   }

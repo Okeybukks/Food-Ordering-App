@@ -5,12 +5,12 @@ class ProfileImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    double height = MediaQuery.of(context).size.height;
 
     return Center(
       child: Container(
-        height: 60,
-        width: 60,
+        height: height * 0.06,
+        width: height * 0.06,
         decoration: BoxDecoration(
           image: DecorationImage(image: AssetImage('images/Passport.jpg'), fit: BoxFit.cover),
           borderRadius: BorderRadius.circular(10)
